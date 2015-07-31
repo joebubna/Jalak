@@ -1,0 +1,71 @@
+Player Model:
+	Members:
+		String name
+		State gamePiece // piece playing (x,o)
+		
+	Methods:
+		State gamePiece
+		String name
+		
+Player Controller:
+	Members:
+		Player p
+		
+	Methods:
+		void gamePiece( State ) // Sets controlled player's gamePiece
+		State gamePiece
+		
+GameBoard Model:
+	Members:
+		int size
+		State[] slot
+	
+	Methods:
+		State slot( int ) // returns gamePiece in slot of offset int.
+		void slot( int, State) // a setter.
+		State[] slots // returns all the slots.
+		int count( State ) // returns the number of gamePieces of that type on the board.
+		int size // returns gameboard total size.
+		
+GameBoard Controller:
+	Members:
+		GameBoard gB
+		
+	Methods:
+		State slot( int ) // returns slot state of given offset
+		State[] slots()
+		int xCount // Number of X's on the board.
+		int oCount // Number of O's on the board.
+		int eCount // Number of empty spaces on the board.
+		int bCount // Number of blocked spaces on the board.
+		int size // returns gameboard size.
+		
+Alak:
+	Members: 
+		c.GameBoard board  // c = controller
+		c.Player player1
+		c.Player player2
+		c.Player turn
+		c.Player winner
+		Boolean gameOver
+		enum State // The possible board states for the given game.
+	
+	Methods:
+		void Main (gathers user input and then starts game)
+		void start (starts main game loop)
+		void announceWinner
+		void takeTurn
+		boolean checkGameOver
+		boolean requestMove
+		
+Board:
+	Knows:
+		size (7-26)
+		SlotState {x,o,e,b} (e = empty)
+		xCount
+		oCount
+		eCount
+		ReportContents
+		ValidateMove
+		RecordMove
+		

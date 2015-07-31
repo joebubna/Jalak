@@ -1,0 +1,32 @@
+Player:
+	Knows:
+		name
+		piece playing (x,o)
+		
+	Does:
+		MakeMove
+	
+Game:
+	Knows: 
+		Turn (x,o)
+		if game is over or not.
+		winner (when applicable)
+	
+	Does:
+		AnnounceWinner
+		StartGame
+		TakeTurn
+		CheckGameOver
+		RequestMove
+		
+Board:
+	Knows:
+		size (7-26)
+		SlotState {x,o,e,b} (e = empty)
+		xCount
+		oCount
+		eCount
+		ReportContents
+		ValidateMove
+		RecordMove
+		

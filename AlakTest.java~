@@ -1,0 +1,55 @@
+//package jalak;
+import org.junit.*;
+import static org.junit.Assert.*;
+
+/**
+ * Test for a <code>Alak</code>.
+ */
+public class AlakTest {
+  
+  private Lamp lamp;
+  
+  @Before
+  public void setUp () {
+	alak = new Alak(13, "John1", "John2");
+  }
+  
+  /**
+   * Test iniital state.
+   */
+  @Test
+  public void testInitialState () {
+    assertFalse( lamp.isOn() );
+    assertEquals( lamp.onCount(), 0 );
+  }
+  
+  /**
+   * Test on/off.
+   */
+  @Test
+  public void testOnOff () {
+    lamp.on(); // turn on a Lamp that is off.
+    assertTrue(lamp.isOn());
+    lamp.on(); // turn on a Lamp that is on.
+    assertTrue(lamp.isOn());
+    lamp.off(); // turn off a Lamp that is on.
+    assertFalse(lamp.isOn());
+    lamp.off(); // turn off a Lamp that is off.
+    assertFalse(lamp.isOn());
+  }
+  
+  /**
+   * Test counter.
+   */
+  @Test
+  public void testCounter () {
+    lamp.on(); // turn on a Lamp that is off.
+    assertTrue( lamp.onCount() ==  1);
+    lamp.on(); // turn on a Lamp that is on.
+    assertTrue( lamp.onCount() == 2 );
+    lamp.off();
+    assertTrue( lamp.onCount() == 2 );
+    lamp.on();
+    assertTrue( lamp.onCount() == 3 );
+  }
+}
